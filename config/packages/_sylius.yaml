@@ -239,3 +239,46 @@ sylius_theme:
             scan_depth: 1
             directories:
                 - "%kernel.project_dir%/themes"
+
+sylius_resource:
+    resources:
+        app.catalog_promotion:
+            driver: doctrine/orm
+            classes:
+                model: App\Entity\CatalogPromotion
+                repository: App\Repository\CatalogPromotionRepository
+sylius_grid:
+    grids:
+        app_admin_catalog_promotion:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: App\Entity\CatalogPromotion
+
+            fields:
+                name:
+                    type: string
+                    label: sylius.ui.name
+                rule:
+                    type: string
+                    label: app.ui.rule
+                action:
+                    type: string
+                    label: app.ui.action
+                startDate:
+                    type: datetime
+                    label: app.ui.start_date
+                endDate:
+                    type: datetime
+                    label: app.ui.end_date
+
+            actions:
+                main:
+                    create:
+                        type: create
+                        
+                item:
+                    update:
+                        type: update
+                    delete:
+                        type: delete

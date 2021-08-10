@@ -33,3 +33,14 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+
+    App\Fixture\Factory\ProductExampleFactory:
+        parent: sylius.fixture.example_factory.product
+
+    sylius.fixture.product:
+        class: Sylius\Bundle\CoreBundle\Fixture\ProductFixture
+        arguments:
+            - '@sylius.manager.product'
+            - '@App\Fixture\Factory\ProductExampleFactory'
+        tags:
+            - { name: "sylius_fixtures.fixture" }

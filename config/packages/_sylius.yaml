@@ -239,3 +239,12 @@ sylius_theme:
             scan_depth: 1
             directories:
                 - "%kernel.project_dir%/themes"
+
+sylius_fixtures:
+    suites:
+        default:
+            fixtures:
+                random_products:
+                    name: product
+                    options:
+                        random: 500000
